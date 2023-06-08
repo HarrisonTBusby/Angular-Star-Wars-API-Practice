@@ -7,17 +7,10 @@ import { ApiServiceService } from './Services/api-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-    data:any;
-    results:any;
 
   constructor(private apiService: ApiServiceService){}
 
   ngOnInit(){
-    this.apiService.getData().subscribe(res => {
-        this.data = res;
-        console.log(res)
-      }
-    )
-    
-}
+
+  }
 }

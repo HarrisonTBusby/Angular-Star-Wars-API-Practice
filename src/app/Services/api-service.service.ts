@@ -8,10 +8,20 @@ export class ApiServiceService {
 
   constructor(private http: HttpClient) { }
 
-  randNumber = Math.round(Math.random() * 82);
-
-  getData()
+  getPeopleData()
   {
-    return this.http.get(`https://swapi.dev/api/people/${this.randNumber}`);
+    return this.http.get(`https://swapi.dev/api/people`);
   }
+
+  getPlanetData()
+  {
+    return this.http.get('https://swapi.dev/api/planets');
+  }
+
+  getStarshipData()
+  {
+    return this.http.get('https://swapi.dev/api/starships');
+  }
+
+
 }

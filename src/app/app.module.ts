@@ -10,6 +10,7 @@ import { CharactersComponent } from './characters/characters.component';
 import { HomeComponent } from './home/home.component';
 import { PlanetComponent } from './planet/planet.component';
 import { StarshipComponent } from './starship/starship.component';
+import { TableComponent } from './table/table.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { StarshipComponent } from './starship/starship.component';
     CharactersComponent,
     HomeComponent,
     PlanetComponent,
-    StarshipComponent
+    StarshipComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

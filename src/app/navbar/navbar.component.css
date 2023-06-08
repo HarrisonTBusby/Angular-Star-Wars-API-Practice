@@ -1,3 +1,7 @@
 .navbar{
     background-color:yellow !important;
 }
+
+.nav-item:hover{
+    background-color: rgb(145, 145, 0);
+}
