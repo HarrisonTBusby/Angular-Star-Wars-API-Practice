@@ -30,32 +30,33 @@ export class CharactersComponent implements OnInit {
       console.log(this.results);
       if (this.results && this.results.length > 0) {
         for (let i = 0; i < this.results.length; i++) {
-          
+
           const currentResult = this.results[i];
-          this.name += currentResult.name + ', ';
+          this.name = currentResult.name;
           const getPlanet = currentResult.homeworld;
 
-          this.getData(getPlanet).subscribe(planetRes => {
-            this.planet += planetRes.name + ', ';
+          this.getData(getPlanet).subscribe((planetRes:any) => {
+            const planetActual = planetRes.name;
+            this.planet = planetActual;
           });
 
-          const vehicleUrls = currentResult.vehicles;
-          const vehicleObservables = vehicleUrls.map((url: any) => this.getData(url));
+          // const vehicleUrls = currentResult.vehicles;
+          // const vehicleObservables = vehicleUrls.map((url: any) => this.getData(url));
 
-          from(vehicleObservables).pipe(
-            concatMap((observable:any) => observable)
-          ).subscribe((vehicleRes:any) => {
-            this.vehicles += vehicleRes.name + ', ';
-          });
+          // from(vehicleObservables).pipe(
+          //   concatMap((observable:any) => observable)
+          // ).subscribe((vehicleRes:any) => {
+          //   this.vehicles = vehicleRes.name;
+          // });
 
-          const starshipUrls = currentResult.starships;
-          const starshipObservables = starshipUrls.map((url:any) => this.getData(url));
+          // const starshipUrls = currentResult.starships;
+          // const starshipObservables = starshipUrls.map((url:any) => this.getData(url));
 
-          from(starshipObservables).pipe(
-            concatMap((observable:any) => observable)
-          ).subscribe((starshipRes:any) => {
-            this.starship += starshipRes.name + ', ';
-          });
+          // from(starshipObservables).pipe(
+          //   concatMap((observable:any) => observable)
+          // ).subscribe((starshipRes:any) => {
+          //   this.starship = starshipRes.name;
+          // });
         }
       }
     });
