@@ -6,12 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CharactersComponent } from './characters/characters.component';
+import { HomeComponent } from './home/home.component';
+import { PlanetComponent } from './planet/planet.component';
+import { StarshipComponent } from './starship/starship.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    CharactersComponent,
+    HomeComponent,
+    PlanetComponent,
+    StarshipComponent
   ],
   imports: [
     BrowserModule,
