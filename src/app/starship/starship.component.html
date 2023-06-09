@@ -3,15 +3,11 @@
     <div class="row">
         <h1 class="mt-5 center charHeader">Starships</h1>
     </div>
-    
+
     <div class="row mt-5">
-    <table-starship
-    *ngFor="let data of results"
-    [name]="data.name"
-    [costInCredits]="data.cost_in_credits"
-    [hyperdriveRating]="data.hyperdrive_rating"
-    [length]="data.length"
-    [passengers]="data.passengers"
-    ></table-starship>
+        <table-starship *ngFor="let data of results" [name]="data.name" [costInCredits]="data.cost_in_credits"
+            [hyperdriveRating]="data.hyperdrive_rating" [length]="data.length"
+            [passengers]="data.passengers"></table-starship>
+        <mat-paginator></mat-paginator>
     </div>
-    </div>
+</div>

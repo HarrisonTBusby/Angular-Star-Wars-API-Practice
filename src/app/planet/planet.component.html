@@ -1,16 +1,15 @@
 <navbar></navbar>
 <div class="container">
-<div class="row">
-    <h1 class="mt-5 center charHeader">Planets</h1>
-</div>
+    <div class="row">
+        <h1 class="mt-5 center charHeader">Planets</h1>
+    </div>
 
-<div class="row mt-5">
-<table-planet
-*ngFor="let data of results"
-[name]="data.name"
-[climate]="data.climate"
-[terrain]="data.terrain"
-[population]="data.population"
-></table-planet>
-</div>
+    <div class="row mt-5">
+        <table-planet *ngFor="let data of results" [name]="data.name" [climate]="data.climate" [terrain]="data.terrain"
+            [population]="data.population"></table-planet>
+        <mat-paginator
+        [pageSize]="10"
+        [length]="10"
+        ></mat-paginator>
+    </div>
 </div>

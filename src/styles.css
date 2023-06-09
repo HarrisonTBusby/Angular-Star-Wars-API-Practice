@@ -2,7 +2,7 @@ body{
     background-image:url('./assets/starWar.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: Star-Wars;
+    font-family: Star-Wars !important;
     color: yellow;
 }
 
@@ -10,3 +10,4 @@ body{
     font-family: Star-Wars;
     src: url('./assets/DeathStar-VmWB.ttf');
 }
+

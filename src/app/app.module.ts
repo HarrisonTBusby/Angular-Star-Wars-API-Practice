@@ -13,7 +13,8 @@ import { StarshipComponent } from './starship/starship.component';
 import { TableComponent } from './table/table.component';
 import { TablePlanetComponent } from './table-planet/table-planet.component';
 import { TableStarshipComponent } from './table-starship/table-starship.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { TableStarshipComponent } from './table-starship/table-starship.componen
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

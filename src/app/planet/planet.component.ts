@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ApiServiceService } from '../Services/api-service.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-planet',
@@ -11,18 +12,24 @@ export class PlanetComponent implements OnInit {
 data:any;
 results:any;
 
+length:any;
+
 @Input() name = '';
 @Input() climate = '';
 @Input() terrain = '';
 @Input() population = '';
+
+@ViewChild(MatPaginator)
+paginator!: MatPaginator;
 
   constructor(private apiService: ApiServiceService){
 
   }
 
   ngOnInit(){
-    this.apiService.getPlanetData().subscribe((res:any) => {
+    this.apiService.getPlanetData(this.paginator.pageIndex).subscribe((res:any) => {
       this.results = res.results;
+      this.length = res.results.count;
       console.log(this.results);
       if (this.results && this.results.length > 0) {
         for (let i = 0; i < this.results.length; i++) {

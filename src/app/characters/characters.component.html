@@ -6,16 +6,8 @@
     </div>
 
     <div class="row mt-5">
-        <table-char
-        *ngFor="let data of results"
-        [name]="data.name"
-        [planet]="data.homeworld"
-        [vehicles]="data.vehicles"
-        [starship]="data.starships"
-        ></table-char>
+        <table-char *ngFor="let data of results" [name]="data.name" [planet]="data.homeworld" [vehicles]="data.vehicles"
+            [starship]="data.starships"></table-char>
+            <mat-paginator></mat-paginator>
     </div>
-
-
-
-
 </div>
