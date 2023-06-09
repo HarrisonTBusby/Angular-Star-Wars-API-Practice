@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { PlanetComponent } from './planet/planet.component';
 import { StarshipComponent } from './starship/starship.component';
 import { TableComponent } from './table/table.component';
+import { TablePlanetComponent } from './table-planet/table-planet.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { TableComponent } from './table/table.component';
     HomeComponent,
     PlanetComponent,
     StarshipComponent,
-    TableComponent
+    TableComponent,
+    TablePlanetComponent
   ],
   imports: [
     BrowserModule,

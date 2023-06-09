@@ -18,10 +18,16 @@ export class ApiServiceService {
     return this.http.get('https://swapi.dev/api/planets');
   }
 
+  getVehicleData(){
+    return this.http.get('https://swapi.dev/api/vehicles/');
+  }
+
   getStarshipData()
   {
     return this.http.get('https://swapi.dev/api/starships');
   }
+
+  
 
 
 }

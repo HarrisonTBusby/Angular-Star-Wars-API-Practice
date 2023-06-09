@@ -24,6 +24,8 @@ export class CharactersComponent implements OnInit {
     return this.http.get<any>(param);
   }
 
+  
+
   ngOnInit() {
     this.apiService.getPeopleData().subscribe((res:any) => {
       this.results = res.results;
@@ -32,33 +34,12 @@ export class CharactersComponent implements OnInit {
         for (let i = 0; i < this.results.length; i++) {
 
           const currentResult = this.results[i];
-          this.name = currentResult.name;
-          const getPlanet = currentResult.homeworld;
-
-          this.getData(getPlanet).subscribe((planetRes:any) => {
-            const planetActual = planetRes.name;
-            this.planet = planetActual;
-          });
-
-          // const vehicleUrls = currentResult.vehicles;
-          // const vehicleObservables = vehicleUrls.map((url: any) => this.getData(url));
-
-          // from(vehicleObservables).pipe(
-          //   concatMap((observable:any) => observable)
-          // ).subscribe((vehicleRes:any) => {
-          //   this.vehicles = vehicleRes.name;
-          // });
-
-          // const starshipUrls = currentResult.starships;
-          // const starshipObservables = starshipUrls.map((url:any) => this.getData(url));
-
-          // from(starshipObservables).pipe(
-          //   concatMap((observable:any) => observable)
-          // ).subscribe((starshipRes:any) => {
-          //   this.starship = starshipRes.name;
-          // });
-        }
+          this.name = currentResult.name;            
+        }      
       }
     });
   }
+
+  
+
 }

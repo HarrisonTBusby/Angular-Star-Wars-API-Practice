@@ -9,8 +9,9 @@
         <table-char
         *ngFor="let data of results"
         [name]="data.name"
-        [planet]="planet"
-        
+        [planet]="data.homeworld"
+        [vehicles]="data.vehicles"
+        [starship]="data.starships"
         ></table-char>
     </div>
 
