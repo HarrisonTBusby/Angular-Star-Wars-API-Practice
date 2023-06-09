@@ -1,0 +1,37 @@
+.cardCharacters{
+    background-image: url('../../assets/Gafas.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+
+.cardPlanets{
+    background-image: url('../../assets/Mustafar.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+
+.cardStarships{
+    background-image: url('../../assets/stardestroyer.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+
+.card{
+    color: yellow;
+}
+
+.cardFont{
+    margin-top: 75%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.234);
+    color: rgb(195, 93, 20);
+    font-size: larger; 
+}
+
+.pointer{
+    cursor: pointer;
+}

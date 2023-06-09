@@ -18,13 +18,7 @@ export class CharactersComponent implements OnInit {
   @Input() vehicles = '';
   @Input() starship = '';
 
-  constructor(private apiService: ApiServiceService, private http: HttpClient) {}
-
-  getData(param: any): Observable<any> {
-    return this.http.get<any>(param);
-  }
-
-  
+  constructor(private apiService: ApiServiceService) {}
 
   ngOnInit() {
     this.apiService.getPeopleData().subscribe((res:any) => {

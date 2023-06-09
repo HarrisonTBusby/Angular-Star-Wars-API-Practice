@@ -19,7 +19,7 @@ export class ApiServiceService {
   }
 
   getVehicleData(){
-    return this.http.get('https://swapi.dev/api/vehicles/');
+    return this.http.get('https://swapi.dev/api/vehicles');
   }
 
   getStarshipData()

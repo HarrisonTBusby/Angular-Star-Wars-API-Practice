@@ -12,6 +12,7 @@ import { PlanetComponent } from './planet/planet.component';
 import { StarshipComponent } from './starship/starship.component';
 import { TableComponent } from './table/table.component';
 import { TablePlanetComponent } from './table-planet/table-planet.component';
+import { TableStarshipComponent } from './table-starship/table-starship.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TablePlanetComponent } from './table-planet/table-planet.component';
     PlanetComponent,
     StarshipComponent,
     TableComponent,
-    TablePlanetComponent
+    TablePlanetComponent,
+    TableStarshipComponent
   ],
   imports: [
     BrowserModule,

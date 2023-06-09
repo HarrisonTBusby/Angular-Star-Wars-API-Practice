@@ -1,6 +1,34 @@
 <navbar></navbar>
 <div class="container">
-    <div class="row">
-     
+  <div class="row mt-5">
+    <div class="col">
+      <a (click)="Nav('/character')" class="pointer">
+      <div class="card cardCharacters" style="width: auto; height: 200%;">
+        <div class="card-body">
+          <h1 class="cardFont">Characters</h1>
+        </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="col">
+      <a (click)="Nav('/planet')" class="pointer">
+      <div class="card cardPlanets" style="width: auto; height: 200%;">
+        <div class="card-body">
+          <h1 class="cardFont">Planets</h1>
+        </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="col">
+      <a (click)="Nav('/starship')" class="pointer">
+      <div class="card cardStarships" style="width: auto; height: 200%;">
+        <div class="card-body">
+          <h1 class="cardFont">Starships</h1>
+        </div>
+      </div>
+    </a>
     </div>
   </div>
+</div>
