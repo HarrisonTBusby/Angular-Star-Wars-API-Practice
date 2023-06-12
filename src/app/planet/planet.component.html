@@ -7,9 +7,13 @@
     <div class="row mt-5">
         <table-planet *ngFor="let data of results" [name]="data.name" [climate]="data.climate" [terrain]="data.terrain"
             [population]="data.population"></table-planet>
-        <mat-paginator
-        [pageSize]="10"
-        [length]="10"
-        ></mat-paginator>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button (click)="previousPage()" [disabled]="count === 0 || count === 1">Prev</button>
+        </div>
+        <div class="col d-flex justify-content-end">
+            <button (click)="nextPage()" [disabled]="count >= 6">Next</button>
+        </div>
     </div>
 </div>

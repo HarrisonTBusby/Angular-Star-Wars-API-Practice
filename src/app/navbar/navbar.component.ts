@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ApiServiceService } from '../Services/api-service.service';
 import { Router } from '@angular/router'
 
 @Component({
@@ -8,11 +9,19 @@ import { Router } from '@angular/router'
 })
 export class NavbarComponent {
 
-  constructor(private router: Router){
+  constructor(private router: Router, private apiService: ApiServiceService){
     
   }
 
+  searchQuery:string = '';
+
   Nav(path:string){
     this.router.navigate([path])
+  }
+
+  getData(){
+    this.apiService.getSearchData(this.searchQuery).subscribe(res => {
+      console.log(res);
+    })
   }
 }

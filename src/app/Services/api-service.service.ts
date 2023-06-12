@@ -16,18 +16,18 @@ export class ApiServiceService {
   pageLength = 0;
   
   @Input()
-  page = this.paginator.pageIndex;
+  page = 0;
 
 
 
-  getPeopleData()
+  getPeopleData(page:number)
   {
-    return this.http.get(`https://swapi.dev/api/people`);
+    return this.http.get(`https://swapi.dev/api/people/?page=${page}`);
   }
 
   getPlanetData(page:number)
   {
-    return this.http.get(`https://swapi.dev/api/planets/$page=${page}`);
+    return this.http.get(`https://swapi.dev/api/planets/?page=${page}`);
 
   }
 
@@ -35,11 +35,14 @@ export class ApiServiceService {
     return this.http.get('https://swapi.dev/api/vehicles');
   }
 
-  getStarshipData()
+  getStarshipData(page:number)
   {
-    return this.http.get('https://swapi.dev/api/starships');
+    return this.http.get(`https://swapi.dev/api/starships/?page=${page}`);
   }
 
+  getSearchData(param:string){
+    return this.http.get(`https://swapi.dev/api/people/?search=${param}`);
+  }
   
 
 

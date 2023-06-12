@@ -15,6 +15,8 @@ import { TablePlanetComponent } from './table-planet/table-planet.component';
 import { TableStarshipComponent } from './table-starship/table-starship.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { ModalComponent } from './modal/modal.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,17 +26,19 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HomeComponent,
     PlanetComponent,
     StarshipComponent,
-    TableComponent,
     TablePlanetComponent,
-    TableStarshipComponent
+    TableStarshipComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    ModalComponent,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    TableComponent,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, concatMap, defaultIfEmpty, from, toArray } from 'rxjs';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'table-char',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.css'],
+  standalone: true,
+  imports:[MatButtonModule, MatDialogModule]
 })
 export class TableComponent{
 
@@ -18,7 +22,7 @@ export class TableComponent{
   myVehicle='';
   myStarship='';
 
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient, public dialog: MatDialog){
 
   }
 
@@ -74,4 +78,21 @@ export class TableComponent{
     return this.http.get(param)
   }
 
+  openModal(){
+    const dialogRef = this.dialog.open(ModalComponent);
+    
+  }
 }
+
+  @Component({
+    selector: 'app-modal',
+    templateUrl: '../modal/modal.component.html',
+    standalone: true,
+    styleUrls: ['../modal/modal.component.css'],
+    imports:[MatDialogModule, MatButtonModule]
+  })
+  
+  export class ModalComponent { }
+
+
+

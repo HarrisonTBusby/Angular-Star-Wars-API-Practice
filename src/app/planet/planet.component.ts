@@ -12,28 +12,37 @@ export class PlanetComponent implements OnInit {
 data:any;
 results:any;
 
-length:any;
-
 @Input() name = '';
 @Input() climate = '';
 @Input() terrain = '';
 @Input() population = '';
 
-@ViewChild(MatPaginator)
-paginator!: MatPaginator;
+count = 1;
 
   constructor(private apiService: ApiServiceService){
 
   }
 
-  ngOnInit(){
-    this.apiService.getPlanetData(this.paginator.pageIndex).subscribe((res:any) => {
+  nextPage() {
+    if (this.count < 7) {
+        this.count++;
+        this.getPData(this.count);
+    }
+}
+
+  previousPage() {
+    if (this.count > 0) {
+        this.count--;
+        this.getPData(this.count);
+    }
+}
+
+  getPData(number:number){
+    this.apiService.getPlanetData(number).subscribe((res:any) => {
       this.results = res.results;
-      this.length = res.results.count;
       console.log(this.results);
       if (this.results && this.results.length > 0) {
         for (let i = 0; i < this.results.length; i++) {
-
           const currentResult = this.results[i];
           this.name = currentResult.name;
           this.climate = currentResult.climate;
@@ -42,5 +51,9 @@ paginator!: MatPaginator;
         }      
       }
     });
+  }
+
+  ngOnInit(){
+   this.getPData(this.count);
 }
 }

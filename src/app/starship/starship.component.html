@@ -8,6 +8,13 @@
         <table-starship *ngFor="let data of results" [name]="data.name" [costInCredits]="data.cost_in_credits"
             [hyperdriveRating]="data.hyperdrive_rating" [length]="data.length"
             [passengers]="data.passengers"></table-starship>
-        <mat-paginator></mat-paginator>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button (click)="previousPage()" [disabled]="count === 0 || count === 1">Prev</button>
+        </div>
+        <div class="col d-flex justify-content-end">
+            <button (click)="nextPage()" [disabled]="count >= 4">Next</button>
+        </div>
     </div>
 </div>

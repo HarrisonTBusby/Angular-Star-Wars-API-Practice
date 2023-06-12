@@ -17,21 +17,39 @@ export class CharactersComponent implements OnInit {
   @Input() planet = '';
   @Input() vehicles = '';
   @Input() starship = '';
+  count = 1;
 
   constructor(private apiService: ApiServiceService) {}
 
-  ngOnInit() {
-    this.apiService.getPeopleData().subscribe((res:any) => {
+  nextPage() {
+    if (this.count < 9) {
+        this.count++;
+        this.getCharData(this.count);
+    }
+}
+
+  previousPage() {
+    if (this.count > 0) {
+        this.count--;
+        this.getCharData(this.count);
+    }
+}
+
+  getCharData(number:number){
+    this.apiService.getPeopleData(number).subscribe((res:any) => {
       this.results = res.results;
       console.log(this.results);
       if (this.results && this.results.length > 0) {
         for (let i = 0; i < this.results.length; i++) {
-
           const currentResult = this.results[i];
           this.name = currentResult.name;            
         }      
       }
     });
+  }
+
+  ngOnInit() {
+    this.getCharData(this.count);
   }
 
   
