@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ApiServiceService } from '../Services/api-service.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navbar',
@@ -8,23 +8,23 @@ import { Router } from '@angular/router'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  @Input() page: string = '';
+  @Output() search: EventEmitter<any[]> = new EventEmitter<any[]>();
 
-  constructor(private router: Router, private apiService: ApiServiceService){
-    
-  }
   @Input()
-  page:string = '';
+  results: any[] = []; // Initialize results as an empty array
+  searchQuery: string = '';
 
+  constructor(private router: Router, private apiService: ApiServiceService) {}
 
-  searchQuery:string = '';
-
-  Nav(path:string){
-    this.router.navigate([path])
+  Nav(path: string) {
+    this.router.navigate([path]);
   }
 
-  getData(){
-    this.apiService.getSearchData(this.page ,this.searchQuery).subscribe(res => {
-      console.log(res);
-    })
+  getData() {
+    this.apiService.getSearchData(this.page, this.searchQuery).subscribe((res: any) => {
+      this.results = res.results;
+      this.search.emit(this.results); // Emit the results to the parent component
+    });
   }
 }

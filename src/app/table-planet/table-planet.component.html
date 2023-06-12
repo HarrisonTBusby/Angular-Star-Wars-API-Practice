@@ -10,12 +10,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let data of results">
             <th scope="row"></th>
-            <td>{{name}}</td> 
-            <td>{{climate}}</td> 
-            <td>{{terrain}}</td> 
-            <td>{{population}}</td>
+            <td>{{data.name}}</td> 
+            <td>{{data.climate}}</td> 
+            <td>{{data.terrain}}</td> 
+            <td>{{data.population}}</td>
           </tr>
         </tbody>
       </table>

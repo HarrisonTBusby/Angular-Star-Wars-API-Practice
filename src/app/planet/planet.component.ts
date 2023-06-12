@@ -1,6 +1,5 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ApiServiceService } from '../Services/api-service.service';
-import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-planet',
@@ -8,53 +7,45 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./planet.component.css']
 })
 export class PlanetComponent implements OnInit {
+  @Input() page: string = 'planets';
+  @Input() name: string = '';
+  @Input() climate: string = '';
+  @Input() terrain: string = '';
+  @Input() population: string = '';
 
-data:any;
-results:any;
+  count: number = 1;
+  results: any;
 
-@Input()page:string = 'planets';
-@Input() name = '';
-@Input() climate = '';
-@Input() terrain = '';
-@Input() population = '';
-
-count = 1;
-
-  constructor(private apiService: ApiServiceService){
-
-  }
+  constructor(private apiService: ApiServiceService) {}
+  
 
   nextPage() {
     if (this.count < 7) {
-        this.count++;
-        this.getPData(this.count);
+      this.count++;
+      this.getPData(this.count);
     }
-}
+  }
 
   previousPage() {
     if (this.count > 0) {
-        this.count--;
-        this.getPData(this.count);
+      this.count--;
+      this.getPData(this.count);
     }
-}
-
-  getPData(number:number){
-    this.apiService.getPlanetData(number).subscribe((res:any) => {
-      this.results = res.results;
-      console.log(this.results);
-      if (this.results && this.results.length > 0) {
-        for (let i = 0; i < this.results.length; i++) {
-          const currentResult = this.results[i];
-          this.name = currentResult.name;
-          this.climate = currentResult.climate;
-          this.terrain = currentResult.terrain;           
-          this.population = currentResult.population; 
-        }      
-      }
-    });
   }
 
-  ngOnInit(){
-   this.getPData(this.count);
-}
+  
+
+  ngOnInit() {
+    this.getPData(this.count);
+  }
+
+  onSearch(results: any) {
+   this.results = results;
+  }
+
+  getPData(number: number) {
+    this.apiService.getPlanetData(number).subscribe((res: any) => {
+      this.results = res.results;
+    });
+  }
 }

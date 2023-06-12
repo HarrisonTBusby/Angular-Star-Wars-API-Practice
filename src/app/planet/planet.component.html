@@ -1,21 +1,27 @@
 <navbar
-[page]="page"
+  [results]="results"
+  [page] = "page"
+  (search)="onSearch($event)"
 ></navbar>
-<div class="container">
-    <div class="row">
-        <h1 class="mt-5 center charHeader">Planets</h1>
-    </div>
 
-    <div class="row mt-5">
-        <table-planet *ngFor="let data of results" [name]="data.name" [climate]="data.climate" [terrain]="data.terrain"
-            [population]="data.population"></table-planet>
+<div class="container">
+  <div class="row">
+    <h1 class="mt-5 center charHeader">Planets</h1>
+  </div>
+
+  <div class="row mt-5">
+    <table-planet
+      [results]="results"
+    ></table-planet>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button (click)="previousPage()" [disabled]="count === 0 || count === 1">
+        Prev
+      </button>
     </div>
-    <div class="row">
-        <div class="col">
-            <button (click)="previousPage()" [disabled]="count === 0 || count === 1">Prev</button>
-        </div>
-        <div class="col d-flex justify-content-end">
-            <button (click)="nextPage()" [disabled]="count >= 6">Next</button>
-        </div>
+    <div class="col d-flex justify-content-end">
+      <button (click)="nextPage()" [disabled]="count >= 6">Next</button>
     </div>
+  </div>
 </div>

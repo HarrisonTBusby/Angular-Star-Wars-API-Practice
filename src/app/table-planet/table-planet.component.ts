@@ -9,6 +9,8 @@ import { ApiServiceService } from '../Services/api-service.service';
 export class TablePlanetComponent implements OnInit{
 
   data: any;
+
+  @Input()
   results: any;
 
   @Input() name = '';
@@ -16,13 +18,14 @@ export class TablePlanetComponent implements OnInit{
   @Input() terrain = '';
   @Input() population = '';
 
-
-
-
+  
   constructor(){}
-
+  
   ngOnInit() {
-    
+    // console.log(this.name);
+    // console.log(this.climate);
+    // console.log(this.terrain);
+    // console.log(this.population);
   }
 
   
