@@ -40,8 +40,8 @@ export class ApiServiceService {
     return this.http.get(`https://swapi.dev/api/starships/?page=${page}`);
   }
 
-  getSearchData(param:string){
-    return this.http.get(`https://swapi.dev/api/people/?search=${param}`);
+  getSearchData(page:string, param:string){
+    return this.http.get(`https://swapi.dev/api/${page}/?search=${param}`);
   }
   
 

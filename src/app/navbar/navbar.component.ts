@@ -12,6 +12,9 @@ export class NavbarComponent {
   constructor(private router: Router, private apiService: ApiServiceService){
     
   }
+  @Input()
+  page:string = '';
+
 
   searchQuery:string = '';
 
@@ -20,7 +23,7 @@ export class NavbarComponent {
   }
 
   getData(){
-    this.apiService.getSearchData(this.searchQuery).subscribe(res => {
+    this.apiService.getSearchData(this.page ,this.searchQuery).subscribe(res => {
       console.log(res);
     })
   }

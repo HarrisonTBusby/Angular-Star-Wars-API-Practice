@@ -13,6 +13,7 @@ export class CharactersComponent implements OnInit {
   data: any;
   results: any;
 
+  @Input() page:string = 'people';
   @Input() name = '';
   @Input() planet = '';
   @Input() vehicles = '';

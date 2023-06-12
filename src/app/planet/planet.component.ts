@@ -12,6 +12,7 @@ export class PlanetComponent implements OnInit {
 data:any;
 results:any;
 
+@Input()page:string = 'planets';
 @Input() name = '';
 @Input() climate = '';
 @Input() terrain = '';

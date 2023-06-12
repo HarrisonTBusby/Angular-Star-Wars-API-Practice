@@ -11,6 +11,7 @@ export class StarshipComponent implements OnInit{
   data:any;
   results:any;
 
+  @Input() page:string = 'starships'
   @Input() name = '';
   @Input() costInCredits = '';
   @Input() hyperdriveRating = '';
